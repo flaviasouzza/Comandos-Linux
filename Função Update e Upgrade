@@ -1,0 +1,30 @@
+## O APT (Advanced Package Tool) é o gerenciador de pacotes utilizado em distribuições baseadas no Debian, como o Ubuntu. Ele permite instalar, atualizar e remover pacotes de software de maneira eficiente.
+
+## Sudo apt update
+Este comando é usado para atualizar a lista de pacotes disponíveis nos repositórios do sistema. Ele não instala ou atualiza nenhum software, apenas baixa informações sobre novas versões disponíveis dos pacotes.
+
+O que acontece ao rodar sudo apt update?
+O sistema verifica os repositórios configurados em /etc/apt/sources.list.
+
+Ele obtém as versões mais recentes dos pacotes disponíveis.
+Se houver pacotes novos ou atualizados, o APT os registra localmente.
+
+
+## Sudo apt upgrade
+Depois de atualizar a lista de pacotes, o comando sudo apt upgrade é usado para instalar as versões mais recentes dos pacotes já instalados no sistema.
+
+O que acontece ao rodar sudo apt upgrade?
+O APT verifica quais pacotes instalados possuem atualizações disponíveis.
+Ele baixa e instala as novas versões desses pacotes.
+Pacotes que exigem mudanças significativas na estrutura do sistema não são atualizados automaticamente (para isso, use sudo apt full-upgrade).
+
+
+📌 Dica:
+Se quiser atualizar todos os pacotes, incluindo aqueles que exigem mudanças significativas no sistema, use sudo apt full-upgrade.
+Para remover pacotes obsoletos após a atualização, use sudo apt autoremove.
+
+
+Resumo
+Comando	O que faz?
+sudo apt update	Atualiza a lista de pacotes disponíveis nos repositórios.
+sudo apt upgrade	Atualiza todos os pacotes instalados para suas versões mais recentes.
