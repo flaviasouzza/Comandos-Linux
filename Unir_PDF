@@ -1,0 +1,5 @@
+### Instalar pdftk
+sudo apt install pdftk
+
+### Unir vários arquivos PDF em um único
+pdftk *.pdf cat output ArquivosUnidos.pdf
