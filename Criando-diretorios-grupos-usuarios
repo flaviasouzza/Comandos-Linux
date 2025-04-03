@@ -1,0 +1,79 @@
+# Instruções para Criar Diretórios, Grupos e Usuários no Linux
+
+## 1. Criar Diretórios
+Primeiro, crie uma pasta para organizar os arquivos. No meu caso, utilizei o caminho:
+```bash
+mkdir -p ~/Documentos/Aulas/DIO/Atividades_Bootcamp_Linux/1
+```
+Dentro desse diretório, crie os subdiretórios necessários:
+```bash
+cd ~/Documentos/Aulas/DIO/Atividades_Bootcamp_Linux/1
+mkdir -p publico adm ven sec
+```
+Para confirmar a criação, use:
+```bash
+ls
+```
+
+## 2. Criar Grupos
+Criamos os grupos para os diferentes setores:
+```bash
+sudo groupadd GPR_ADM
+sudo groupadd GPR_VEN
+sudo groupadd GPR_SEC
+```
+Para verificar se foram criados corretamente:
+```bash
+cat /etc/group | grep GPR_
+```
+
+## 3. Criar Usuários e Atribuí-los aos Grupos
+Agora criamos os usuários e os adicionamos aos grupos correspondentes:
+```bash
+sudo useradd -m -s /bin/bash -G GPR_ADM Carlos
+sudo useradd -m -s /bin/bash -G GPR_ADM Maria
+sudo useradd -m -s /bin/bash -G GPR_ADM Joao
+
+sudo useradd -m -s /bin/bash -G GPR_VEN Debora
+sudo useradd -m -s /bin/bash -G GPR_VEN Sebastiana
+sudo useradd -m -s /bin/bash -G GPR_VEN Roberto
+
+sudo useradd -m -s /bin/bash -G GPR_SEC Josefina
+sudo useradd -m -s /bin/bash -G GPR_SEC Amanda
+sudo useradd -m -s /bin/bash -G GPR_SEC Rogerio
+```
+
+Para conferir se os usuários foram criados e adicionados corretamente:
+```bash
+cat /etc/passwd | grep -E "Carlos|Maria|Joao|Debora|Sebastiana|Roberto|Josefina|Amanda|Rogerio"
+groups Carlos Maria Joao Debora Sebastiana Roberto Josefina Amanda Rogerio
+```
+
+## 4. Definir Permissões
+Defina permissões para os diretórios públicos e privados:
+
+### Diretório Público (Acesso Livre)
+```bash
+sudo chmod 777 ~/Documentos/Aulas/DIO/Atividades_Bootcamp_Linux/1/publico
+```
+
+### Diretórios Restritos por Grupo
+```bash
+sudo chown :GPR_ADM ~/Documentos/Aulas/DIO/Atividades_Bootcamp_Linux/1/adm
+sudo chmod 770 ~/Documentos/Aulas/DIO/Atividades_Bootcamp_Linux/1/adm
+
+sudo chown :GPR_VEN ~/Documentos/Aulas/DIO/Atividades_Bootcamp_Linux/1/ven
+sudo chmod 770 ~/Documentos/Aulas/DIO/Atividades_Bootcamp_Linux/1/ven
+
+sudo chown :GPR_SEC ~/Documentos/Aulas/DIO/Atividades_Bootcamp_Linux/1/sec
+sudo chmod 770 ~/Documentos/Aulas/DIO/Atividades_Bootcamp_Linux/1/sec
+```
+
+Para verificar as permissões definidas:
+```bash
+ls -ld ~/Documentos/Aulas/DIO/Atividades_Bootcamp_Linux/1/*
+```
+
+---
+Agora, os usuários têm acesso apenas aos seus respectivos diretórios, garantindo a segurança e organização dos arquivos. 🚀
+
