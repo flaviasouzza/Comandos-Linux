@@ -1,5 +1,7 @@
-# Instalar o qpdf
+### Instalar o qpdf
 sudo apt install qpdf
 
-# Remover senha de um arquivo PDF
+### Remover senha de um arquivo PDF
 qpdf --decrypt "NOMEDOARQUIVO.pdf" "ARQUIVO_SEM_PROTECAO.pdf"
+
+
