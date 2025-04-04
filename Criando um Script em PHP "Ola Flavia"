@@ -1,0 +1,46 @@
+# Como estamos no linux vamos validar se temos o PHP instalado 
+
+php -v
+
+# Caso não esteja instalado basta rodar:
+
+sudo apt update && sudo apt install php
+
+# Posterirmente vamos criar o primeiro arquivo index.php do projeto, então vá até a pasta que deseja salvar seu projeto 
+
+cd ~
+mkdir meu_projeto && cd meu_projeto
+nano index.php
+
+## Observações:
+O mkdir no Linux, o comando mkdir (make directory) cria um diretório, que na prática é o mesmo que uma pasta
+O nano é um editor de texto no terminal, e ele pode tanto criar quanto editar arquivos. 
+  Se o arquivo já existir, ele será aberto para edição.
+  Se o arquivo não existir, ele será criado automaticamente.
+
+# Ao rodar o nano index.php como não temos arquvio criado ele, então ele será criado, e posteriormente vamos editar colocando:
+<?php 
+echo "Olá, Flavia! Seja bem-vinda ao PHP!"
+?>
+
+Salve, e saia da edição 
+
+# Vamos abrir pra visualização 
+
+cat index.php
+
+Saída:
+<?php 
+echo "Olá, Flavia! Seja bem-vinda ao PHP!"
+?>
+
+# Vamor rodar na WEB, no terminal dentro da pasta do projeto rode:
+
+php -S localhost:8000
+
+# Abra o navegador e coloque:
+
+http://localhost:8000/index.php
+
+
+é necessário aparecer a mensagem que escrevemos “Olá, Flavia! Seja bem-vinda ao PHP!"
